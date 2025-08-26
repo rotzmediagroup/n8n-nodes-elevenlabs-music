@@ -1,19 +1,24 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-elevenlabs-music",
   "version": "0.1.0",
-  "description": "",
+  "description": "N8N community node for ElevenLabs Music API integration",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "elevenlabs",
+    "music",
+    "ai",
+    "audio",
+    "generation"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/rotzmediagroup/n8n-nodes-elevenlabs-music",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Rotz Media Group",
+    "email": "community@rotzmediagroup.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/rotzmediagroup/n8n-nodes-elevenlabs-music.git"
   },
   "engines": {
     "node": ">=20.15"
@@ -33,15 +38,14 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/ElevenLabsApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/ElevenLabsMusic/ElevenLabsMusic.node.js"
     ]
   },
   "devDependencies": {
+    "@types/node": "^24.3.0",
     "@typescript-eslint/parser": "~8.32.0",
     "eslint": "^8.57.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.3",

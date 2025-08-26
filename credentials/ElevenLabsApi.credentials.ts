@@ -5,37 +5,37 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class HttpBinApi implements ICredentialType {
-	name = 'httpbinApi';
-	displayName = 'HttpBin API';
-	documentationUrl = 'https://your-docs-url';
+export class ElevenLabsApi implements ICredentialType {
+	name = 'elevenLabsApi';
+	displayName = 'ElevenLabs API';
+	documentationUrl = 'https://elevenlabs.io/docs/api-reference/authentication';
 	properties: INodeProperties[] = [
 		{
-			displayName: 'Token',
-			name: 'token',
+			displayName: 'API Key',
+			name: 'apiKey',
 			type: 'string',
 			default: '',
 			typeOptions: {
 				password: true,
-			}
+			},
+			description: 'Your ElevenLabs API key. You can find this in your ElevenLabs dashboard.',
 		},
 		{
-			displayName: 'Domain',
-			name: 'domain',
+			displayName: 'Base URL',
+			name: 'baseUrl',
 			type: 'string',
-			default: 'https://httpbin.org',
+			default: 'https://api.elevenlabs.io',
+			description: 'The base URL for the ElevenLabs API',
 		},
 	];
 
 	// This allows the credential to be used by other parts of n8n
 	// stating how this credential is injected as part of the request
-	// An example is the Http Request node that can make generic calls
-	// reusing this credential
 	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
 		properties: {
 			headers: {
-				Authorization: '={{"Bearer " + $credentials.token}}',
+				'xi-api-key': '={{$credentials.apiKey}}',
 			},
 		},
 	};
@@ -43,8 +43,10 @@ export class HttpBinApi implements ICredentialType {
 	// The block below tells how this credential can be tested
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '={{$credentials?.domain}}',
-			url: '/bearer',
+			baseURL: '={{$credentials?.baseUrl}}',
+			url: '/v1/user',
+			method: 'GET',
 		},
 	};
 }
+
