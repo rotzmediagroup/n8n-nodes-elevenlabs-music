@@ -13,8 +13,8 @@
   "license": "MIT",
   "homepage": "https://github.com/rotzmediagroup/n8n-nodes-elevenlabs-music",
   "author": {
-    "name": "Rotz Media Group",
-    "email": "community@rotzmediagroup.com"
+    "name": "Jerome Levy",
+    "email": "info@rotz.me"
   },
   "repository": {
     "type": "git",
